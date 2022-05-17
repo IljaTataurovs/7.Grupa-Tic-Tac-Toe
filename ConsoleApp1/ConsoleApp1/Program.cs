@@ -17,6 +17,8 @@ void brainOfGame(char player)
         int row = int.Parse(info.Substring(0,1));
         int column = int.Parse(info.Substring(1,1));
         
+
+
         board[row, column] = player;
 
         if (player == board[1, 1] && player == board[1, 2] && player == board[1, 3])//parbaudam var ir vinnejs
