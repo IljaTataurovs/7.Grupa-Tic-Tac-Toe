@@ -9,7 +9,7 @@ void brainOfGame(char player)
 {
     while (true)
     {
-        Console.Clear(); //koment1ggwww
+        Console.Clear(); //koment1ggwwwcc
         printBoard(board);
         Console.WriteLine($"Player {player} make your move! Please choose square were to put {player} sign (2 cipari kā koordināte, piemēram 11 vai 23, vai ...)");
         string info = Console.ReadLine();
