@@ -11,11 +11,12 @@ void brainOfGame(char player)
     {
         Console.Clear();
         printBoard(board);
-        Console.WriteLine($"Player {player} make your move! Please choose square were to put {player} sign");
-        Console.WriteLine("Please choose a row ");
-        int row = int.Parse(Console.ReadLine());
-        Console.WriteLine("Please choose a column ");
-        int column = int.Parse(Console.ReadLine());
+        Console.WriteLine($"Player {player} make your move! Please choose square were to put {player} sign (2 cipari kā koordināte, piemēram 11 vai 23, vai ...)");
+        string info = Console.ReadLine();
+
+        int row = int.Parse(info.Substring(0,1));
+        int column = int.Parse(info.Substring(1,1));
+        
         board[row, column] = player;
 
         if (player == board[1, 1] && player == board[1, 2] && player == board[1, 3])//parbaudam var ir vinnejs
