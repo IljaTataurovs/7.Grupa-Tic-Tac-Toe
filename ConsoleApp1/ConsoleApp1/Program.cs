@@ -27,7 +27,7 @@ void brainOfGame(char player)
         movesPlayed++;//skaitam kartas cik nospeletas ja 9 tad ir neizskirts
         if (movesPlayed == 9)
         {
-            Console.WriteLine("No one won a game! it's a draw!");//pp
+            Console.WriteLine("No one won a game! it's a draw!");//ppff
             break;
         }
         player = changePlayer(player);
