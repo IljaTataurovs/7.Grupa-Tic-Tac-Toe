@@ -3,12 +3,14 @@ char player = 'X';
 int n = 3;
 char[,] board = new char[n, n];
 int movesPlayed = 0;
+bool isValid = true;
 Menu();
 
 
-void brainOfGame(char player)
+
+void StartGame(char player)
 {
-    while (true)
+    while (isValid)
     {
         Console.Clear(); 
         PrintBoard(board);
@@ -27,86 +29,8 @@ void brainOfGame(char player)
         {
             Console.WriteLine("Incorrect input2");
         }
-
-       //board[row-1, column-1] = player;//user ievadija 11 =(0,0) 22=(1,1)
-       
-
-        
-
-        //if (player == board[0, 0] && player == board[0, 1] && player == board[0, 2])//parbaudam var ir uzvaretajs pirma rinda
-        //{
-        //    Console.Clear();
-        //    printBoard(board);
-        //    Console.WriteLine($"Player {player} has won the game!");
-        //    break;
-        //}
-        //if (player == board[3, 1] && player == board[2, 2] && player == board[1, 3])//parbaudam var ir uzvaretajs diagonala rinda
-        //{
-        //    Console.Clear();
-        //    printBoard(board);
-        //    Console.WriteLine($"Player {player} has won the game!");
-        //    break;
-        //}
-        //if (player == board[0, 0] && player == board[1, 1] && player == board[2, 2])//parbaudam var ir uzvaretajs diagonala rinda 2
-        //{
-        //    Console.Clear();
-        //    printBoard(board);
-        //    Console.WriteLine($"Player {player} has won the game!");
-        //    break;
-        //}
-        //if (player == board[1, 0] && player == board[1, 1] && player == board[1, 2])//parbaudam var ir uzvaretajs otra rinda
-        //{
-        //    Console.Clear();
-        //    printBoard(board);
-        //    Console.WriteLine($"Player {player} has won the game!");
-        //    break;
-        //}
-        //if (player == board[2, 0] && player == board[2, 1] && player == board[2, 2])//parbaudam var ir uzvaretajs tresaja rinda
-        //{
-        //    Console.Clear();
-        //    printBoard(board);
-        //    Console.WriteLine($"Player {player} has won the game!");
-        //    break;
-        //}
-        //if (player == board[0, 0] && player == board[1, 0] && player == board[2, 0])//parbaudam var ir uzvaretajs 1 kolonna
-        //{
-        //    Console.Clear();
-        //    printBoard(board);
-        //    Console.WriteLine($"Player {player} has won the game!");
-        //    break;
-        //}
-        //if (player == board[0, 1] && player == board[1, 1] && player == board[2, 1])//parbaudam var ir uzvaretajs 2 kolonna
-        //{
-        //    Console.Clear();
-        //    printBoard(board);
-        //    Console.WriteLine($"Player {player} has won the game!");
-        //    break;
-        //}
-        //if (player == board[0, 2] && player == board[1, 2] && player == board[2, 2])//parbaudam var ir uzvaretajs 3 kolonna
-        //{
-        //    Console.Clear();
-        //    printBoard(board);
-        //    Console.WriteLine($"Player {player} has won the game!");
-        //    break;
-        //}
-        //else
-        //{
-        //    Console.WriteLine($"Incorrect input3");
-        //}
-
-        
-        if (movesPlayed == 9)
-        {
-            Console.Clear();
-            PrintBoard(board);
-            Console.WriteLine("No one won a game! it's a draw!");
-            break;
-        }
-
-        
-        
-        //Move(row, column, player);
-        if (board[row, column] == ' ')
+     
+        if (board[row, column] == ' ')//ja laukums ir tukss tad mes pieskiram X vai 0(player)
         {
 
             board[row, column] = player;
@@ -121,7 +45,7 @@ void brainOfGame(char player)
             movesPlayed--;
             Console.ReadKey();
             player = ChangePlayer(player);
-          
+
 
         }
 
@@ -131,12 +55,10 @@ void brainOfGame(char player)
             {
                 break;
             }
-            if (i == 2)
+            if (i == n - 1)
             {
-                Console.Clear();
-                PrintBoard(board);
-                Console.WriteLine($"Player {player} has won the game!");
-                break;
+                OutputWinner();
+ 
             }
         }
         for (int i = 0; i < n; i++)//check columns
@@ -147,10 +69,8 @@ void brainOfGame(char player)
             }
             if (i == n - 1)
             {
-                Console.Clear();
-                PrintBoard(board);
-                Console.WriteLine($"Player {player} has won the game!");
-                break;
+                OutputWinner();
+               
             }
         }
         if (row == column) //check diagonal
@@ -163,10 +83,8 @@ void brainOfGame(char player)
                 }
                 if (i == n - 1)
                 {
-                    Console.Clear();
-                    PrintBoard(board);
-                    Console.WriteLine($"Player {player} has won the game!");
-                    break;
+                    OutputWinner();
+        
                 }
             }
         }
@@ -180,13 +98,24 @@ void brainOfGame(char player)
                 }
                 if (i == n - 1)
                 {
-                    Console.Clear();
-                    PrintBoard(board);
-                    Console.WriteLine($"Player {player} has won the game!");
-                    break;
+                    OutputWinner();
+      
                 }
             }
         }
+
+
+        if (movesPlayed == 9)
+        {
+            Console.Clear();
+            PrintBoard(board);
+            Console.WriteLine("No one won a game! it's a draw!");
+            Console.WriteLine("Please press any key for main menu");
+            Console.ReadKey();
+            Menu();
+            
+        }
+
         player = ChangePlayer(player);
     }
 }
@@ -205,6 +134,18 @@ static char ChangePlayer(char currentplayer)//mainam speletaju
     }
 }
 
+void OutputWinner()//izprintejam uzvaretaju
+{
+    Console.Clear();
+    PrintBoard(board);
+    Console.WriteLine($"Player {player} has won the game!");
+    Console.WriteLine($"Please press any key for main menu");
+    isValid = false;
+    movesPlayed = 0;
+    Console.ReadKey();
+    Menu();
+
+}
 
 
 void PrintStartBoard(char[,] board)//inicializejam laukumu
@@ -248,13 +189,13 @@ void Menu()//menu kur lietotajs var izveleties vai vins grib uzspelet speli
 {
 
     Console.Clear();
-    Console.WriteLine("======================");
+    Console.WriteLine("=====Main Menu========================");
     Console.WriteLine("Hello, do you want to play a game?");
     Console.WriteLine("Please make a choise! ");
-    Console.WriteLine("======================");
+    Console.WriteLine("======================================");
     Console.WriteLine("1: Yes! Let's play a game! ");
     Console.WriteLine("2: No! Leave me alone! ");
-    Console.WriteLine("======================");
+    Console.WriteLine("======================================");
 
     int userChoise = int.Parse(Console.ReadLine());
     switch (userChoise)
@@ -262,7 +203,7 @@ void Menu()//menu kur lietotajs var izveleties vai vins grib uzspelet speli
         case 1:
             Console.Clear();
             PrintStartBoard(board);
-            brainOfGame(player);
+            StartGame(player);
             break;
         case 2:
             Console.WriteLine("See you next time!");
@@ -273,6 +214,7 @@ void Menu()//menu kur lietotajs var izveleties vai vins grib uzspelet speli
             break;
     }
 }
+
 
 
 
