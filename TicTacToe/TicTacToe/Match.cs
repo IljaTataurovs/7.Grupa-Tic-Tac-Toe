@@ -143,7 +143,7 @@
             }
         }
 
-        static char ChangePlayer(char currentplayer)//mainam speletaju
+        public char ChangePlayer(char currentplayer)//mainam speletaju
         {
             if (currentplayer == 'X')
             {
