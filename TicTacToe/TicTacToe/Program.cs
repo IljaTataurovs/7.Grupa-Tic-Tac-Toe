@@ -13,7 +13,7 @@ void Menu()
     Console.Clear();
     Console.WriteLine("==============Main Menu===============");
     Console.WriteLine("Hello, do you want to play a game?");
-    Console.WriteLine("Please make a choise! ");
+    Console.WriteLine("Please make a choice! ");
     Console.WriteLine("======================================");
     Console.WriteLine("1: Yes! Let's play a game! ");
     Console.WriteLine("2: No! Leave me alone! ");
