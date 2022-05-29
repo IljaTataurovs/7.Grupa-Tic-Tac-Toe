@@ -19,8 +19,8 @@ void Menu()
     Console.WriteLine("2: No! Leave me alone! ");
     Console.WriteLine("======================================");
 
-    int userChoise = int.Parse(Console.ReadLine());
-    switch (userChoise)
+    int userChoice = int.Parse(Console.ReadLine());
+    switch (userChoice)
     {
         case 1:
             Console.Clear();
