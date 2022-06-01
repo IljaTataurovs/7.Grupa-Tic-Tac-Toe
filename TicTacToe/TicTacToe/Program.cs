@@ -14,6 +14,7 @@ Console.WriteLine("Please make a choice! ");
 Console.WriteLine("======================================");
 Console.WriteLine("1: Yes! Let's play a game! ");
 Console.WriteLine("2: No! Leave me alone! ");
+Console.WriteLine("3: Eksperiments ");
 Console.WriteLine("======================================");
 
 string userChoice = Console.ReadLine();
@@ -33,8 +34,15 @@ switch (userChoice)
     case "2":
         Console.WriteLine("See you next time!");
         break;
+    case "3":
+        break;
     default:
         Console.WriteLine("Incorrect option...press any key");
         Console.ReadKey();
         break;
     }
+
+if (userChoice == "3")  //papildinājums testa nolūkiem
+{
+    Console.WriteLine("Eksperiments!");
+}
