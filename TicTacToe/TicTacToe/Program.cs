@@ -16,11 +16,11 @@ Console.WriteLine("1: Yes! Let's play a game! ");
 Console.WriteLine("2: No! Leave me alone! ");
 Console.WriteLine("======================================");
 
-int userChoice = int.Parse(Console.ReadLine());
+string userChoice = Console.ReadLine();
 
 switch (userChoice)
    {
-     case 1:
+     case "1":
         Console.Clear();
         Field.PrintStartBoard(match.board);
         //Match.StartGame();
@@ -30,7 +30,7 @@ switch (userChoice)
         // match.makeMove(position)
         //StartGame(player);
         break;
-    case 2:
+    case "2":
         Console.WriteLine("See you next time!");
         break;
     default:
