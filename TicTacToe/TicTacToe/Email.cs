@@ -11,6 +11,7 @@ namespace TicTacToe
         public void export(string info)
         {
             //nosūtīt epastu
+            Console.WriteLine("E-Pasts nosūtīts :) ");
         }
         public void setMail(string email, string adresats)
         {

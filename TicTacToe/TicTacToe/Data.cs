@@ -101,6 +101,7 @@ namespace TicTacToe
         {
             int half = board.Length / 2;
             int counter = 0;
+            bool winner = false;
 
             for (int i = 0; i < half; i++)
             {
@@ -115,6 +116,17 @@ namespace TicTacToe
                             {
                                 input[counter] = user;
                                 Data.DisplayBoard(input, log);
+                                winner = Data.CheckResult(input, user);
+                                if (winner)
+                                {
+                                    Console.WriteLine("");
+                                    Console.WriteLine("");
+                                    Console.WriteLine("===================================================");
+                                    Console.WriteLine("");
+                                    Console.WriteLine("");
+                                    Console.WriteLine(user + " ir uzvarējis!");
+                                    break;
+                                }
                             }
                             else
                             {
@@ -131,6 +143,42 @@ namespace TicTacToe
             }
             return input;
         }
+        public static bool CheckResult (string[] input, string user)
+        {
+            int half = board.Length / 2;
+            int counter = 0;
+            int desasGarums = 3;
+
+            for (int i = 0; i < half; i++)
+            {
+                for (int i2 = half; i2 < board.Length; i2++)
+                {
+                    if (input[counter] == user)
+                    {
+
+                        if ((i + desasGarums > half) || counter + desasGarums > input.Length)
+                        {
+                            continue;
+                        }
+                        if (input[counter] == input[counter + 1] && input[counter] == input[counter + 2])
+                        {
+                            return true;
+                        }
+                        if (input[counter] == input[counter + half] && input[counter] == input[counter + (2 * half)])
+                        {
+                            return true;
+                        }
+                        if (input[counter] == input[counter + half + 1] && input[counter] == input[counter + (2 * half) + 2])
+                        {
+                            return true;
+                        }
+                    }
+                    counter++;
+                }
+            }
+            return false;
+        }
+        
 
     }
 }

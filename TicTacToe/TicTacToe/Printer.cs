@@ -11,6 +11,7 @@ namespace TicTacToe
         public void export(string info)
         {
             //izdrukāt
+            Console.WriteLine("Dati izdrukāti uz A4 lapas! :)");
         }
         public void setPrinter(string printerName)
         {

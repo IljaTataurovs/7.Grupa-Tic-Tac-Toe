@@ -14,7 +14,7 @@ Console.WriteLine("Please make a choice! ");
 Console.WriteLine("======================================");
 Console.WriteLine("1: Yes! Let's play a game! ");
 Console.WriteLine("2: No! Leave me alone! ");
-Console.WriteLine("3: Eksperiments ");
+Console.WriteLine("3: Vēl viena spēles versija! ");
 Console.WriteLine("======================================");
 
 string userChoice = Console.ReadLine();
