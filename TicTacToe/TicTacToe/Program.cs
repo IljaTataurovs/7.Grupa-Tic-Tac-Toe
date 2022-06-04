@@ -44,5 +44,6 @@ switch (userChoice)
 
 if (userChoice == "3")  //papildinājums testa nolūkiem
 {
-    Console.WriteLine("Eksperiments!");
+    TicTacToeEksperiments ttte = new TicTacToeEksperiments();
+    ttte.runGame();
 }
