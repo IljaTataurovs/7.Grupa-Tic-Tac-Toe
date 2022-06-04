@@ -49,11 +49,17 @@ namespace TicTacToe
                 }
             }
             //ILogEksports
+
+            int kurEksportet = (int)Target.ToEmail;
+            
             Email email = new Email();
             Printer printer = new Printer();
 
             List<ILogEksports> loges = new List<ILogEksports>();
-            loges.Add(email);
+            if (kurEksportet == (int)Target.ToEmail)
+            {
+                loges.Add(email);
+            }
             loges.Add(printer);
 
             foreach (var eksports in loges)
