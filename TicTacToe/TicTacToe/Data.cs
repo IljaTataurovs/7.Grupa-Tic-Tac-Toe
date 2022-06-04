@@ -17,11 +17,17 @@ namespace TicTacToe
             string ret = "";
             string sym1 = "";
             string sym2 = "";
-            string sym01 = input.Substring(0, 1);
-            string sym02 = input.Substring(1, 1);
 
-            if (input.Length == 2 && sym01 != sym02)
+            if (input.Length == 2)
             {
+                string sym01 = input.Substring(0, 1);
+                string sym02 = input.Substring(1, 1);
+
+                if (sym01 == sym02)
+                {
+                    return ret;
+                }
+
                 for (int i = 0; i < board.Length; i++)
                 {
                     if (board[i] == sym01)
@@ -123,9 +129,11 @@ namespace TicTacToe
                                     Console.WriteLine("");
                                     Console.WriteLine("===================================================");
                                     Console.WriteLine("");
-                                    Console.WriteLine("");
                                     Console.WriteLine(user + " ir uzvarējis!");
-                                    break;
+                                    Console.WriteLine("");
+                                    Console.ReadKey();
+                                    Environment.Exit(0);
+
                                 }
                             }
                             else
@@ -156,29 +164,51 @@ namespace TicTacToe
                     if (input[counter] == user)
                     {
 
-                        if ((i + desasGarums > half) || counter + desasGarums > input.Length)
+                        if ((i2 - half + desasGarums > half) || counter + desasGarums > input.Length)
                         {
                             continue;
                         }
-                        if (input[counter] == input[counter + 1] && input[counter] == input[counter + 2])
+                        if (counter / half == (counter + desasGarums - 1) / half)
                         {
-                            return true;
+                            if (input[counter] == input[counter + 1] && input[counter] == input[counter + 2])
+                            {
+                                return true;
+                            }
                         }
-                        if (input[counter] == input[counter + half] && input[counter] == input[counter + (2 * half)])
+                        if(counter + (2 * half) < input.Length)
                         {
-                            return true;
+                            if (counter / half == ((counter + half) / half - 1) && counter / half == ((counter + 2 * half) / half - 2))
+                            {
+                                if (input[counter] == input[counter + half] && input[counter] == input[counter + (2 * half)])
+                                {
+                                    return true;
+                                }
+                            }
                         }
-                        if (input[counter] == input[counter + half + 1] && input[counter] == input[counter + (2 * half) + 2])
+                        if (counter + (2 * half) + 2 < input.Length)
+                        { 
+                            if (input[counter] == input[counter + half + 1] && input[counter] == input[counter + (2 * half) + 2])
+                            {
+                                return true;
+                            }
+                        }
+                        if (counter + (2 * half) < input.Length)
                         {
-                            return true;
+                            if (counter / half == ((counter + half - 1) / half - 1) && counter / half == ((counter + 2 * half - 2) / half - 2))
+                            {
+                                if (input[counter] == input[counter + half - 1] && input[counter] == input[counter + (2 * half) - 2])
+                                {
+                                    return true;
+                                }
+                            }
                         }
+
                     }
                     counter++;
                 }
             }
             return false;
         }
-        
 
     }
 }
