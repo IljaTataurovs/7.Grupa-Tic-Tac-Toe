@@ -19,12 +19,20 @@ namespace TicTacToe
             Console.WriteLine("");
 
             string[] info = { " ", " ", " ", " ", " ", " ", " ", " ", " " };
-            string[] user = { "x", "o" };
             string[] log = { "x: ", "o: " };
+
+            Human human1 = new Human();
+            Human human2 = new Human();
+            human1.Name = "X";
+            human2.Name = "Y";
+            Computer computer = new Computer();
+            computer.Name = this.ToString();
+
+            //Human[] user = { human1, human2 };
+            string[] user = { "x", "o" };
 
             int defUser = 1;
             Data.DisplayBoard(info, log);
-
 
             for (int i = 0; i < (info.Length) * 2; i++)
             {

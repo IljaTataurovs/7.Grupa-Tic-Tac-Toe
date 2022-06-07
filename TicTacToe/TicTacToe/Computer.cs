@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace TicTacToe
 {
-    internal class Computer:Player
+    public class Computer : Player
     {
+        public string[] gajiens(string[] input, string user)
+        {
+            // aprēķini
+
+            return input;
+        }
 
     }
 }
