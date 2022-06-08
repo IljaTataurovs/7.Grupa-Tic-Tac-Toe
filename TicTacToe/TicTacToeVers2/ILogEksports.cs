@@ -4,13 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TicTacToe
+namespace TicTacToeVers2
 {
-    public enum Target
+    public interface ILogEksports
     {
-        ToFile = 1,
-        ToEmail,
-        ToPhone,
-        ToPrinter
+        void export(string info);
     }
 }

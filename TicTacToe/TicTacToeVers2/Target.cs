@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TicTacToe
+namespace TicTacToeVers2
 {
-    public class Player
+    public enum Target
     {
-        public string Name { get; set; }
-        public string Symbol { get; set; }
-
+        ToFile = 1,
+        ToEmail,
+        ToPhone,
+        ToPrinter
     }
 }

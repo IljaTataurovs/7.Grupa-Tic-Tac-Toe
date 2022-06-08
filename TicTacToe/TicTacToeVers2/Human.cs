@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TicTacToe
+namespace TicTacToeVers2
 {
-    public interface ILogEksports
+    internal class Human : Player
     {
-        void export(string info);
+
     }
 }

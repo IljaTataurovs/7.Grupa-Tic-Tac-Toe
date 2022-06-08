@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TicTacToe
+namespace TicTacToeVers2
 {
-    internal class Human : Player
+    public class Player
     {
+        public string Name { get; set; }
+        public string Symbol { get; set; }
 
     }
 }
