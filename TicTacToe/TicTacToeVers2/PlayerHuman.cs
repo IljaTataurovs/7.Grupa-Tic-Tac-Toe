@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TicTacToeVers2
 {
-    internal class PlayerHuman : Player
+    public class PlayerHuman : Player
     {
 
     }

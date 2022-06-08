@@ -1,5 +1,5 @@
 ﻿using Xunit;
-namespace TicTacToe.Tests
+namespace TicTacToeVers2.Tests
 {
     public class DataTests
     {
@@ -25,7 +25,8 @@ namespace TicTacToe.Tests
 
         public void CheckAndOrder_When_Then(string no, string uz)
         {
-            string ret = Data.CheckAndOrder(no);
+            SpelesLogika spelesLogika = new SpelesLogika();
+            string ret = spelesLogika.CheckAndOrder(no);
             Assert.Equal(uz, ret);
         }
     }

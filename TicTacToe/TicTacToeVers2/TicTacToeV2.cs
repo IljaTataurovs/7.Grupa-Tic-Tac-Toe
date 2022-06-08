@@ -8,8 +8,9 @@ namespace TicTacToeVers2
 {
     public class TicTacToeV2
     {
-        public void runGame()
+        public void runGame(PlayerHuman human1, PlayerHuman human2, string mode)
         {
+            SpelesLogika spelesLogika = new SpelesLogika();
             string ret = "";
             string retOrig = "";
             int symbol = 0;
@@ -18,21 +19,12 @@ namespace TicTacToeVers2
             Console.WriteLine("Sveiks, spēlējam, Tavs gājiens.");
             Console.WriteLine("");
 
-            string[] info = { " ", " ", " ", " ", " ", " ", " ", " ", " " };
-            string[] log = { "x: ", "o: " };
-
-            PlayerHuman human1 = new PlayerHuman();
-            PlayerHuman human2 = new PlayerHuman();
-            human1.Name = "X";
-            human2.Name = "Y";
-            PlayerComputer computer = new PlayerComputer();
-            computer.Name = this.ToString();
-
-            //Human[] user = { human1, human2 };
-            string[] user = { "x", "o" };
+            string[] info = { " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " " };
+            string[] log = { human1.Name + ": ", human2.Name + ": " };
+            string[] user = { human1.Name, human2.Name };
 
             int defUser = 1;
-            SpelesLaukums.DisplayBoard(info, log);
+            spelesLogika.DisplayBoard(info, log);
 
             for (int i = 0; i < (info.Length) * 2; i++)
             {
@@ -43,13 +35,13 @@ namespace TicTacToeVers2
                     Console.WriteLine("Paldies par spēli! Tiekamies citreiz! :)");
                     break;
                 }
-                ret = SpelesLaukums.CheckAndOrder(ret);
+                ret = spelesLogika.CheckAndOrder(ret);
 
                 if (ret.Length == 2)
                 {
                     defUser = (defUser + 1) % 2;
                     log[defUser] = log[defUser] + " " + retOrig;
-                    info = SpelesLaukums.FillDisplayInfo(info, user[defUser], ret, log);
+                    info = spelesLogika.FillDisplayInfo(info, user[defUser], ret, log);
                 }
                 if (i == (info.Length * 2 - 1))
                 {
@@ -58,13 +50,13 @@ namespace TicTacToeVers2
             }
             //ILogEksports
 
-            int kurEksportet = (int)Target.ToEmail;
+            int kurEksportet = (int)LogToTarget.ToEmail;
             
             LogToEmail email = new LogToEmail();
             LogToPrinter printer = new LogToPrinter();
 
             List<ILogEksports> loges = new List<ILogEksports>();
-            if (kurEksportet == (int)Target.ToEmail)
+            if (kurEksportet == (int)LogToTarget.ToEmail)
             {
                 loges.Add(email);
             }
@@ -76,6 +68,11 @@ namespace TicTacToeVers2
                 eksports.export(log[1]);
             }
 
+        }
+
+        public static string CheckAndOrder(string no)
+        {
+            throw new NotImplementedException();
         }
     }
 }
