@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TicTacToeVers2
 {
-    public class TicTacToeEksperiments
+    public class TicTacToeV2
     {
         public void runGame()
         {
@@ -21,18 +21,18 @@ namespace TicTacToeVers2
             string[] info = { " ", " ", " ", " ", " ", " ", " ", " ", " " };
             string[] log = { "x: ", "o: " };
 
-            Human human1 = new Human();
-            Human human2 = new Human();
+            PlayerHuman human1 = new PlayerHuman();
+            PlayerHuman human2 = new PlayerHuman();
             human1.Name = "X";
             human2.Name = "Y";
-            Computer computer = new Computer();
+            PlayerComputer computer = new PlayerComputer();
             computer.Name = this.ToString();
 
             //Human[] user = { human1, human2 };
             string[] user = { "x", "o" };
 
             int defUser = 1;
-            Data.DisplayBoard(info, log);
+            SpelesLaukums.DisplayBoard(info, log);
 
             for (int i = 0; i < (info.Length) * 2; i++)
             {
@@ -43,13 +43,13 @@ namespace TicTacToeVers2
                     Console.WriteLine("Paldies par spēli! Tiekamies citreiz! :)");
                     break;
                 }
-                ret = Data.CheckAndOrder(ret);
+                ret = SpelesLaukums.CheckAndOrder(ret);
 
                 if (ret.Length == 2)
                 {
                     defUser = (defUser + 1) % 2;
                     log[defUser] = log[defUser] + " " + retOrig;
-                    info = Data.FillDisplayInfo(info, user[defUser], ret, log);
+                    info = SpelesLaukums.FillDisplayInfo(info, user[defUser], ret, log);
                 }
                 if (i == (info.Length * 2 - 1))
                 {
@@ -60,8 +60,8 @@ namespace TicTacToeVers2
 
             int kurEksportet = (int)Target.ToEmail;
             
-            Email email = new Email();
-            Printer printer = new Printer();
+            LogToEmail email = new LogToEmail();
+            LogToPrinter printer = new LogToPrinter();
 
             List<ILogEksports> loges = new List<ILogEksports>();
             if (kurEksportet == (int)Target.ToEmail)

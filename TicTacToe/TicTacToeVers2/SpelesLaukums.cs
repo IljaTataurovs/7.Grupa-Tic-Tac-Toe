@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TicTacToeVers2
 {
-    public static class Data
+    public static class SpelesLaukums
     {
         public static string[] board = { "a", "b", "c", "1", "2", "3" };
 
@@ -121,8 +121,8 @@ namespace TicTacToeVers2
                             if (input[counter] == " ")
                             {
                                 input[counter] = user;
-                                Data.DisplayBoard(input, log);
-                                winner = Data.CheckResult(input, user);
+                                SpelesLaukums.DisplayBoard(input, log);
+                                winner = SpelesLaukums.CheckResult(input, user);
                                 if (winner)
                                 {
                                     Console.WriteLine("");

@@ -16,7 +16,7 @@ string userChoice = Console.ReadLine();
 switch (userChoice)
 {
     case "1":
-        TicTacToeEksperiments ttte = new TicTacToeEksperiments();
+        TicTacToeV2 ttte = new TicTacToeV2();
         ttte.runGame();
         break;
     case "2":

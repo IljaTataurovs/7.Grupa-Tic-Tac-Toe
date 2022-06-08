@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TicTacToeVers2
 {
-    public class Email : ILogEksports
+    public class LogToEmail : ILogEksports
     {
         public void export(string info)
         {

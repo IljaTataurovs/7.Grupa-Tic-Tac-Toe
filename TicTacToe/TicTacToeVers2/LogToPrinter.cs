@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TicTacToeVers2
 {
-    public class Printer : ILogEksports
+    public class LogToPrinter : ILogEksports
     {
         public void export(string info)
         {
