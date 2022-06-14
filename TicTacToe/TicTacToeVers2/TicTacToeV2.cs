@@ -13,7 +13,7 @@ namespace TicTacToeVers2
             SpelesLogika spelesLogika = new SpelesLogika();
             string ret = "";
             string retOrig = "";
-            int symbol = 0;
+      //      int symbol = 0;
 
             Console.Clear();
             Console.WriteLine("Sveiks, spēlējam, Tavs gājiens.");
