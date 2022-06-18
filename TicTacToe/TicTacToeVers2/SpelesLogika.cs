@@ -8,13 +8,7 @@ namespace TicTacToeVers2
 {
     public class SpelesLogika
     {
-        public string[] board = { "a", "b", "c", "d", "e", "1", "2", "3", "4", "5" };
-        /*
-                public string[] board3 = { "a", "b", "c", "1", "2", "3" };
-                public string[] board4 = { "a", "b", "c", "d", "1", "2", "3", "4" };
-                public string[] board5 = { "a", "b", "c", "d", "e", "1", "2", "3", "4", "5" };
-          */
-        public string CheckAndOrder(string input)
+        public string CheckAndOrder(string input, string[] board)
         {
             int count1 = 0;
             int count2 = 0;
@@ -95,7 +89,7 @@ namespace TicTacToeVers2
 
             return ret;
         }
-        public void DisplayBoard(string[] input, string[] log)
+        public void DisplayBoard(string[] input, string[] log, string[] board)
         {
             string displayInfo = "Jāievada koordinātes, piemēram 1a vai b3... utt, pēc tam Enter. Ievadot X spēle beidzas.";
             int half = board.Length / 2;
@@ -134,7 +128,7 @@ namespace TicTacToeVers2
             Console.WriteLine(displayInfo);
 
         }
-        public string[] FillDisplayInfo(string[] input, string user, string code, string[] log)
+        public string[] FillDisplayInfo(string[] input, string user, string code, string[] log, string[] board)
         {
             int half = board.Length / 2;
             int counter = 0;
@@ -152,8 +146,8 @@ namespace TicTacToeVers2
                             if (input[counter] == " ")
                             {
                                 input[counter] = user;
-                                DisplayBoard(input, log);
-                                winner = CheckResult(input, user);
+                                DisplayBoard(input, log, board);
+                                winner = CheckResult(input, user, board);
                                 if (winner)
                                 {
                                     Console.WriteLine("");
@@ -182,7 +176,7 @@ namespace TicTacToeVers2
             }
             return input;
         }
-        public bool CheckResult (string[] input, string user)
+        public bool CheckResult (string[] input, string user, string[] board)
         {
             int half = board.Length / 2;
             int counter = 0;
