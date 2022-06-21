@@ -25,8 +25,9 @@ namespace TicTacToeVers2.Tests
 
         public void CheckAndOrder_When_Then(string no, string uz)
         {
+            string[] board64 = { "a", "b", "c", "d", "e", "f", "g", "h", "1", "2", "3", "4", "5", "6", "7", "8" };
             SpelesLogika spelesLogika = new SpelesLogika();
-            string ret = spelesLogika.CheckAndOrder(no);
+            string ret = spelesLogika.CheckAndOrder(no, board64);
             Assert.Equal(uz, ret);
         }
     }

@@ -156,6 +156,26 @@ namespace TicTacToeVers2
                                     Console.WriteLine("");
                                     Console.WriteLine("    " + user + " ir uzvarējis!");
                                     Console.WriteLine("");
+
+                                    int kurEksportet = (int)LogToTarget.ToEmail;
+                                    int j = 0;
+                                    LogToEmail email = new LogToEmail();
+                                    LogToPrinter printer = new LogToPrinter();
+
+                                    List<ILogEksports> loges = new List<ILogEksports>();
+                                    if (kurEksportet == (int)LogToTarget.ToEmail)
+                                    {
+                                        loges.Add(email);
+                                    }
+                                    loges.Add(printer);
+
+
+                                    foreach (var eksports in loges)
+                                    {
+                                        eksports.export(log[j]);
+                                        j++;
+                                    }
+
                                     Console.ReadKey();
                                     Environment.Exit(0);
 
