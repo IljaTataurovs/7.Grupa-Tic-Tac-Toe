@@ -29,6 +29,7 @@ namespace TicTacToeVers2
                 Console.WriteLine($"Apstrādes kļūda: {exceptionMessage}");
             }
 */
+/*
             if (input.Length != 2)
             {
                 if (input.Length == 1)
@@ -40,15 +41,15 @@ namespace TicTacToeVers2
                     throw new DimensionException($"Tu ievadīji {input.Length} zīmes! Vajadzīgas 2 zīmes!");
                 }
             }
-            
+  */          
                 string sym01 = input.Substring(0, 1);
                 string sym02 = input.Substring(1, 1);
-
+            /*
                 if (sym01 == sym02)
                 {
                     throw new DimensionException($"Ievadīta nepieļaujama kombinācija {input}!");
                 }
-
+            */
                 for (int i = 0; i < board.Length; i++)
                 {
                     if (board[i] == sym01)
@@ -82,11 +83,12 @@ namespace TicTacToeVers2
                 {
                     ret = sym1 + sym2;
                 }
+/*
                 else
                 {
                     throw new DimensionException($"Ievadīta nepieļaujama kombinācija {input}!");
                 }
-
+*/
             return ret;
         }
         public void DisplayBoard(string[] input, string[] log, string[] board)
